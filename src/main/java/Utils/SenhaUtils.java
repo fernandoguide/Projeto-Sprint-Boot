@@ -1,4 +1,4 @@
-package com.meudominio.api;
+package Utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SenhaUtils {
