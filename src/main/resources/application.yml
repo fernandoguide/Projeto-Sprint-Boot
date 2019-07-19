@@ -1,0 +1,34 @@
+# CONFIGURACAO DO SPRING
+spring:
+    application:
+        name: empresa
+    datasource:
+        initialization-mode: always
+        url: "jdbc:postgresql://localhost:5432/bdempresa"
+        username: postgres
+        password: 1234
+        driverClassName: org.postgresql.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+            pool-name: ${spring.application.name}-pool
+            connection-test-query: "SELECT current_timestamp"
+            minimum-idle: 10
+            maximum-pool-size: 500
+            connection-timeout: 40000
+    jpa:
+        properties:
+            hibernate:
+                temp:
+                    use_jdbc_metadata_defaults: false
+                dialect: org.hibernate.dialect.PostgreSQL94Dialect
+                order_inserts: true
+                order_updates: true
+                jdbc:
+                    batch_size: 1000
+                    batch_versioned_data: true
+                provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider             
+
+# JWT 
+jwt:
+    secret: "_@HRL&L3tF?Z7ccj4z&L5!nU2B!Rjs3_"
+    expiration: 604800 
